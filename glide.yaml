@@ -1,0 +1,18 @@
+package: github.com/enaml-ops/gemfire-plugin
+import:
+- package: github.com/enaml-ops/enaml
+  version: ~0.0.17
+- package: github.com/enaml-ops/pluginlib
+  version: ~1.0.0
+  subpackages:
+  - cred
+  - pcli
+  - pluginutil
+  - productv1
+- package: github.com/xchapter7x/lo
+testImport:
+- package: github.com/onsi/ginkgo
+  version: ~1.2.0
+- package: github.com/onsi/gomega
+  version: ~1.0.0
+- package: gopkg.in/yaml.v2
