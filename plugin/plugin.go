@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/enaml-ops/enaml"
+	"github.com/enaml-ops/gemfire-plugin/enaml-gen/locator"
 	"github.com/enaml-ops/gemfire-plugin/enaml-gen/server"
 	"github.com/enaml-ops/pluginlib/cred"
 	"github.com/enaml-ops/pluginlib/pcli"
@@ -105,7 +106,7 @@ func (p *Plugin) GetProduct(args []string, cloudConfig []byte, cs cred.Store) ([
 	}
 
 	ltr := NewLocatorGroup(p.NetworkName, p.LocatorStaticIPs, p.GemfireLocatorPort, p.GemfireLocatorRestPort, p.GemfireLocatorVMMemory, p.GemfireLocatorVMSize)
-	locatorInstanceGroup := ltr.GetInstanceGroup()
+	locatorInstanceGroup := ltr.GetInstanceGroup(p.getLocatorAuthn())
 	locatorInstanceGroup.Stemcell = p.StemcellAlias
 	locatorInstanceGroup.AZs = p.AZs
 	deploymentManifest.AddInstanceGroup(locatorInstanceGroup)
@@ -134,6 +135,14 @@ func (p *Plugin) getSecurityJar() string {
 	return ""
 }
 
+func (p *Plugin) getLocatorAuthn() locator.Authn {
+	authn := locator.Authn{}
+	authn.Enabled = true
+	authn.SecurityJarBase64Bits = p.getSecurityJar()
+	return authn
+
+}
+
 func (p *Plugin) getServerAuthn() server.Authn {
 	authn := server.Authn{}
 
@@ -151,7 +160,7 @@ func (p *Plugin) getServerAuthn() server.Authn {
 		authn.SecurityPublickeyPass = p.PublicKeyPass
 		authn.SecurityKeystoreFilepath = p.KeystoreRemotePath
 		authn.SecurityClientAuthenticator = p.SecurityClientAuthenticator
-		authn.SecurityJarBase64Bits = p.getSecurityJar()
+		//authn.SecurityJarBase64Bits = p.getSecurityJar()
 	}
 	return authn
 }
@@ -180,7 +189,7 @@ func (p *Plugin) GetMeta() product.Meta {
 			"stemcell":             defaultStemcellVersion,
 			"pivotal-gemfire-tile": "NOT COMPATIBLE WITH TILE RELEASES",
 			"p-gemfire":            fmt.Sprintf("%s / %s", releaseName, releaseVersion),
-			"description":          "this plugin is designed to work with a special p-gemfire release",
+			"description":          "this plugin is designed to work with a special p-gemfire release v1.0.8",
 		},
 	}
 }

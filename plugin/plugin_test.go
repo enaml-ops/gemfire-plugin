@@ -157,7 +157,7 @@ var _ = Describe("p-gemfire plugin", func() {
 				encoder := base64.NewEncoder(base64.StdEncoding, buf)
 				encoder.Write(b)
 				encoder.Close()
-				Ω(server.Gemfire.Authn.SecurityJarBase64Bits).Should(Equal(buf.String()))
+				Ω(locator.Gemfire.Authn.SecurityJarBase64Bits).Should(Equal(buf.String()))
 			})
 
 			It("should set the keystore password", func() {
