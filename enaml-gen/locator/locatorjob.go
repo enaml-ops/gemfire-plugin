@@ -5,7 +5,7 @@ package locator
 */
 type LocatorJob struct {
 
-	/*Gemfire - Descr: min number of locators which should be present Default: 2
+	/*Gemfire - Descr: Port the Locator will listen on for REST API Default: 8080
 */
 	Gemfire *Gemfire `yaml:"gemfire,omitempty"`
 

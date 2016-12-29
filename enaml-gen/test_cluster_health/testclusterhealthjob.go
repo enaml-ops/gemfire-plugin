@@ -5,7 +5,7 @@ package test_cluster_health
 */
 type TestClusterHealthJob struct {
 
-	/*Gemfire - Descr: Configuration for plans deployed by product Default: []
+	/*Gemfire - Descr: Port the Locator is listening on Default: 55221
 */
 	Gemfire *Gemfire `yaml:"gemfire,omitempty"`
 

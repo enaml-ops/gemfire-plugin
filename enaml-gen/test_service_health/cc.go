@@ -5,7 +5,7 @@ package test_service_health
 */
 type Cc struct {
 
-	/*Api - Descr: CF Space with in Org to use for test app Default: gemfire-smoke-test-space-57818572-4437-45d8-a25b-d71e5f5eae7d
+	/*Api - Descr: Username to authenticate with Default: <nil>
 */
 	Api *Api `yaml:"api,omitempty"`
 

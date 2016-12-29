@@ -5,20 +5,20 @@ package server
 */
 type Gemfire struct {
 
-	/*Locator - Descr: Port the Locator is listening on Default: <nil>
-*/
-	Locator *Locator `yaml:"locator,omitempty"`
-
-	/*Authn - Descr: base64 encoding of authentication security jar Default: 
+	/*Authn - Descr: password for the given key Default: <nil>
 */
 	Authn *Authn `yaml:"authn,omitempty"`
 
-	/*ClusterTopology - Descr: Number of locators per cluster Default: 0
+	/*Server - Descr: activate the dev rest api on your gemfire server nodes Default: false
+*/
+	Server *Server `yaml:"server,omitempty"`
+
+	/*ClusterTopology - Descr: Number of cache servers per cluster Default: 0
 */
 	ClusterTopology *ClusterTopology `yaml:"cluster_topology,omitempty"`
 
-	/*Server - Descr: Port for the REST endpoint for administration Default: 8080
+	/*Locator - Descr: List of GemFire Locator addresses of the form X.X.X.X Default: <nil>
 */
-	Server *Server `yaml:"server,omitempty"`
+	Locator *Locator `yaml:"locator,omitempty"`
 
 }

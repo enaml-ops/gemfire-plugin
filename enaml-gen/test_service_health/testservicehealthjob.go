@@ -5,11 +5,11 @@ package test_service_health
 */
 type TestServiceHealthJob struct {
 
-	/*Cc - Descr: Cloud Controller Application Domain Default: <nil>
+	/*Cc - Descr: Username to authenticate with Default: <nil>
 */
 	Cc *Cc `yaml:"cc,omitempty"`
 
-	/*Gemfire - Descr: Name to give test GemFire CF service Default: gemfire-smoke-test-service-70552f90-7785-4347-9516
+	/*Gemfire - Descr: Name of service registered with cloud controller Default: <nil>
 */
 	Gemfire *Gemfire `yaml:"gemfire,omitempty"`
 

@@ -13,12 +13,12 @@ type Locator struct {
 */
 	Port interface{} `yaml:"port,omitempty"`
 
-	/*RestPort - Descr: Port the Locator will listen on for REST API Default: 8080
-*/
-	RestPort interface{} `yaml:"rest_port,omitempty"`
-
 	/*VmMemory - Descr: RAM allocated to the locator VM in MB Default: <nil>
 */
 	VmMemory interface{} `yaml:"vm_memory,omitempty"`
+
+	/*RestPort - Descr: Port the Locator will listen on for REST API Default: 8080
+*/
+	RestPort interface{} `yaml:"rest_port,omitempty"`
 
 }
