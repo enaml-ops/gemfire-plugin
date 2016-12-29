@@ -6,6 +6,10 @@ release found: (https://github.com/c0-ops/cf-gemfire-release)
 
 
 ## how to run tests
+**once pushed to the remote your builds can be viewed in wercker
+any push which passes all unit tests and can be cross compiled successfully will
+be pushed to github as a draft release with cross platform binaries included
+(https://app.wercker.com/enaml-ops/gemfire-plugin/runs)
 ### pre-reqs
   - docker
   - wercker cli 
